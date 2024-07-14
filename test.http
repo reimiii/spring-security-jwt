@@ -1,0 +1,11 @@
+### Register
+
+POST http://localhost:8080/register/user
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password",
+  "role": "USER,ADMIN"
+}
