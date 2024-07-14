@@ -1,5 +1,6 @@
 package franxx.code.security.web.token;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -34,5 +35,25 @@ public class JwtService {
   private SecretKey generateSecretKey() {
     byte[] decode = Base64.getDecoder().decode(SECRET_KEY);
     return Keys.hmacShaKeyFor(decode);
+  }
+
+  public String extractUsername(String jwt) {
+    Claims claims = getClaims(jwt);
+
+    return claims.getSubject();
+  }
+
+  private Claims getClaims(String jwt) {
+    return Jwts.parser()
+        .verifyWith(generateSecretKey())
+        .build()
+        .parseSignedClaims(jwt)
+        .getPayload();
+  }
+
+  public boolean isValidToken(String jwt) {
+    Claims claims = getClaims(jwt);
+
+    return claims.getExpiration().after(Date.from(Instant.now()));
   }
 }

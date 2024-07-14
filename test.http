@@ -5,9 +5,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "user",
+  "username": "admin",
   "password": "password",
-  "role": "USER"
+  "role": "USER,ADMIN"
 }
 ### Auth
 
@@ -16,6 +16,19 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "user",
+  "username": "admin",
   "password": "password"
 }
+
+### getV
+
+GET http://localhost:8080/home
+
+### getV
+GET http://localhost:8080/admin/home
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJwYWNtYW4iOiJhcmNoLWxpbnV4Iiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MjA5Mzg5OTUsImV4cCI6MTcyMDk0MDc5NX0.AlSGr6eqSh0eJAo3OCnv2YvPdYbuFCaC0tQ-dBJgIocyqAAXTQ8g507vtGCxPRVLM4G9qhrqrj-XajmyT2LgaQ
+
+### getV
+
+GET http://localhost:8080/user/home
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJwYWNtYW4iOiJhcmNoLWxpbnV4Iiwic3ViIjoidXNlciIsImlhdCI6MTcyMDkzODI3MSwiZXhwIjoxNzIwOTQwMDcxfQ.QZdutIcalqKsA0mB1nIgtuhYMI0jpbqeCo2SdXU68lyAqTZOk7Kdgr1dV6FE9fBHpVH4PeFn5Mp9Knek-kxcSw
