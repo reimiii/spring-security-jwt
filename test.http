@@ -5,7 +5,17 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "admin",
+  "username": "user",
   "password": "password",
-  "role": "USER,ADMIN"
+  "role": "USER"
+}
+### Auth
+
+POST http://localhost:8080/auth
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "password"
 }

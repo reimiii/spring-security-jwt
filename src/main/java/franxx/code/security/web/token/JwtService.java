@@ -23,8 +23,8 @@ public class JwtService {
     claims.put("pacman", "arch-linux");
 
     return Jwts.builder()
-        .subject(userDetails.getUsername())
         .claims(claims)
+        .subject(userDetails.getUsername())
         .issuedAt(Date.from(Instant.now()))
         .expiration(Date.from(Instant.now().plusMillis(VALID_TOKEN)))
         .signWith(generateSecretKey())
